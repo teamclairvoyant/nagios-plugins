@@ -6,13 +6,13 @@ x=$(yarn application -list -appTypes SPARK -appStates RUNNING | grep $sparkAppNa
 
 if [ -z "$x" ]; then
 
-    echo "$sparkAppName is not running."
+    echo "CRITICAL - $sparkAppName is not running."
     exit 2
 
 else
 
     echo "$x"
-    echo "$sparkAppName is running."
+    echo "OK - $sparkAppName is running."
     exit 0
 
 fi
