@@ -1,18 +1,27 @@
 #!/bin/bash
 
-sparkAppName=$1
+sparkStreamingFilename=$1
 
-status=$(yarn application -list -appTypes SPARK -appStates RUNNING | grep $sparkAppName)
+if [[ ($sparkStreamingFilename == *.py) || ($sparkStreamingFilename == *.java) || ($sparkStreamingFilename == *.scala) || ($sparkStreamingFilename == *.sc) ]]; then
 
-if [ -z "$status" ]; then
+    status=$(yarn application -list -appTypes SPARK -appStates RUNNING | grep $sparkStreamingFilename)
 
-    echo "CRITICAL - $sparkAppName is not running."
-    exit 2
+    if [ -z "$status" ]; then
+
+        echo "CRITICAL - $sparkStreamingFilename is not running."
+        exit 2
+
+    else
+
+        echo "OK - $sparkStreamingFilename is running."
+        exit 0
+
+    fi
 
 else
 
-    echo "OK - $sparkAppName is running."
-    exit 0
+    echo "CRITICAL - Spark Streaming Filename is invalid."
+    exit 2
 
 fi
 
@@ -27,7 +36,7 @@ define service{
         use local-service
         host_name localhost
         service_description Spark Monitor <filename>
-        check_command spark_monitor!<filename>
+        check_command spark_monitor!<sparkStreamingFilename>
 }
 END
 
