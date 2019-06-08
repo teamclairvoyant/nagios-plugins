@@ -2,16 +2,15 @@
 
 sparkAppName=$1
 
-x=$(yarn application -list -appTypes SPARK -appStates RUNNING | grep $sparkAppName)
+status=$(yarn application -list -appTypes SPARK -appStates RUNNING | grep $sparkAppName)
 
-if [ -z "$x" ]; then
+if [ -z "$status" ]; then
 
     echo "CRITICAL - $sparkAppName is not running."
     exit 2
 
 else
 
-    echo "$x"
     echo "OK - $sparkAppName is running."
     exit 0
 
@@ -29,8 +28,6 @@ define service{
         host_name localhost
         service_description Spark Monitor <filename>
         check_command spark_monitor!<filename>
-        check_interval 10s
-        retry_interval 1
 }
 END
 
