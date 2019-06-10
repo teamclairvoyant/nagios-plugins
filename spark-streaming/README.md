@@ -48,7 +48,8 @@ define service{
 
 }
 
-# <sparkAppName>: the name of the Spark Streaming Application set through the --name flag when submitting the application to spark-submit.
+# <sparkAppName>: the name of the Spark Streaming Application set through the --name flag when submitting
+#                 the application to spark-submit.
 ```
 
 ### Nagios Agent
