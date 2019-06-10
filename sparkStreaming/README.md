@@ -40,4 +40,4 @@ The source code for the shell script can be found in the GitHub repository (spar
 
 Once the files are properly modified, the service can be located on the monitoring dashboard, accessible at http://localhost/nagios.
 
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![Nagios Plugin](https://github.com/teamclairvoyant/nagios-plugins/blob/master/sparkStreaming/nagios-plugin.png)
