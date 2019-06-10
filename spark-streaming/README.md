@@ -25,7 +25,7 @@
 - Make the script executable.
 
 ```bash
-chmod +x /usr/local/nagios/etc/libexec/spark_streaming_monitor.sh
+chmod +x /usr/local/nagios/etc/libexec/spark_monitor.sh
 ```
 
 - Create a service definition need for the monitoring service.
@@ -43,8 +43,8 @@ define service{
     service_description Spark Monitor <sparkAppName>
     # service_description Spark Monitor TestSpark
 
-    check_command spark_monitor!<sparkStreamingFilename>
-    # check_command spark_monitor!testSpark.py
+    check_command spark_monitor!<sparkAppName>
+    # check_command spark_monitor!TestSpark
 
 }
 
@@ -62,9 +62,9 @@ define service{
 
 define command{
 
-command_name spark_monitor
+    command_name spark_monitor
 
-command_line $USER1$/spark_monitor.sh $ARG1$
+    command_line $USER1$/spark_streaming_monitor.sh $ARG1$
 
 }
 
@@ -72,7 +72,7 @@ command_line $USER1$/spark_monitor.sh $ARG1$
 ```
 ### Configuration Check
 
-- Ensure the service is visible on the monitoring dashboard accessible at http://<ip address>/nagios.
+- Ensure the service is visible on the monitoring dashboard accessible at http://<IP Address>/nagios.
 
 ![Nagios Plugin](https://github.com/teamclairvoyant/nagios-plugins/blob/master/spark-streaming/nagios-plugin.png)
 

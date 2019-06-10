@@ -1,17 +1,17 @@
 #!/bin/bash
 
-sparkStreamingAppName=$1
+sparkAppName=$1
 
-status=$(yarn application -list -appTypes SPARK -appStates RUNNING | grep $sparkStreamingAppName)
+status=$(yarn application -list -appTypes SPARK -appStates RUNNING | grep $sparkAppName)
 
 if [ -z "$status" ]; then
 
-    echo "CRITICAL - $sparkStreamingAppName is not running."
+    echo "CRITICAL - $sparkAppName is not running."
     exit 2
 
 else
 
-    echo "OK - $sparkStreamingAppName is running."
+    echo "OK - $sparkAppName is running."
     exit 0
 
 fi
