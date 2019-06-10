@@ -19,8 +19,7 @@ check_command spark_monitor!<sparkStreamingFilename>
 }
 ```
 
-
-Article Post: https://medium.com/@prakshalj0512/nagios-plugin-for-monitoring-spark-streaming-applications-ea3859b9a275?postPublishedType=repub
+[Medium Article Post](https://medium.com/@prakshalj0512/nagios-plugin-for-monitoring-spark-streaming-applications-ea3859b9a275?postPublishedType=repub)
 
 ### Service Definition
 
