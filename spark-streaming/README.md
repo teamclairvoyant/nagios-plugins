@@ -6,15 +6,11 @@
 
 - The plugin returns a CRITICAL state when the application is not running and OK state when it is running properly.
 
-- [Follow Along Medium Post](https://medium.com/@prakshalj0512/nagios-plugin-for-monitoring-spark-streaming-applications-ea3859b9a275?postPublishedType=repub)
-
-
 ## Deployment and Configuration
 
 ### Prerequisites
 
-- YARN Application Manager
-    - The process should be running on a machine with the `yarn` command available.
+- The process should be running on a machine with the `yarn` command available.
 
 ### Note
 
@@ -22,7 +18,7 @@
 
 ### Nagios WebServer
 
-- Store the script under /usr/local/nagios/etc/libexec/ found here.
+- Store the script responsible for monitoring the spark streaming applications (spark_stremaing_monitor.sh) under /usr/local/nagios/etc/libexec/.
 - Make the script executable.
 
 ```bash
@@ -74,7 +70,7 @@ define command{
 ```
 ### Configuration Check
 
-- Ensure the service is visible on the monitoring dashboard accessible at http://<IP Address>/nagios.
+- Ensure the service is visible on the monitoring dashboard accessible at http://<nagios-hostname>/nagios/.
 
 ![Nagios Plugin](https://github.com/teamclairvoyant/nagios-plugins/blob/master/spark-streaming/nagios-plugin.png)
 
