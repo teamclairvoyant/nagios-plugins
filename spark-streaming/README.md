@@ -51,7 +51,11 @@ define service{
 # <sparkAppName>: the name of the Spark Streaming Application
 ```
 
-### Command Definition
+#### Nagios Agent
+
+-Create a command definition need for the monitoring service.
+
+##### Command Definition
 
 ```bash
 # Path: /usr/local/nagios/etc/objects/commands.cfg
@@ -66,8 +70,12 @@ command_line $USER1$/spark_monitor.sh $ARG1$
 
 # $ARG1$ contains the sparkAppName passed through the service definition.
 ```
-### Configuration Check
+#### Configuration Check
 
 - Ensure the service is visible on the monitoring dashboard accessible at http://<ip address>/nagios.
 
 ![Nagios Plugin](https://github.com/teamclairvoyant/nagios-plugins/blob/master/spark-streaming/nagios-plugin.png)
+
+### Conclusion
+
+- All done! Now, you should be able to monitor any and all of your spark streaming applications at a glance from the Nagios dashboard.
