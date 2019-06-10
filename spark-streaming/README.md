@@ -19,7 +19,7 @@
 
 - If utilizing Kerberos, ensure that the user running the process has the privileges necessary to obtain an authentication ticket.
 
-#### Nagios WebServer
+### Nagios WebServer
 
 - Store the script under /usr/local/nagios/etc/libexec/ found here.
 - Make the script executable.
@@ -51,7 +51,7 @@ define service{
 # <sparkAppName>: the name of the Spark Streaming Application
 ```
 
-#### Nagios Agent
+### Nagios Agent
 
 -Create a command definition need for the monitoring service.
 
@@ -70,12 +70,12 @@ command_line $USER1$/spark_monitor.sh $ARG1$
 
 # $ARG1$ contains the sparkAppName passed through the service definition.
 ```
-#### Configuration Check
+### Configuration Check
 
 - Ensure the service is visible on the monitoring dashboard accessible at http://<ip address>/nagios.
 
 ![Nagios Plugin](https://github.com/teamclairvoyant/nagios-plugins/blob/master/spark-streaming/nagios-plugin.png)
 
-### Conclusion
+## Conclusion
 
 - All done! Now, you should be able to monitor any and all of your spark streaming applications at a glance from the Nagios dashboard.
