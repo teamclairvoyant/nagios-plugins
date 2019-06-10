@@ -36,13 +36,19 @@ chmod +x /usr/local/nagios/etc/libexec/spark_streaming_monitor.sh
 # Path: /usr/local/nagios/etc/objects/localhost.cfg
 
 define service{
-use local-service
-host_name localhost
-service_description Spark Monitor <sparkAppName>
-# service_description Spark Monitor TestSpark
-check_command spark_monitor!<sparkStreamingFilename>
-# check_command spark_monitor!testSpark.py
+
+    use local-service
+    host_name localhost
+
+    service_description Spark Monitor <sparkAppName>
+    # service_description Spark Monitor TestSpark
+
+    check_command spark_monitor!<sparkStreamingFilename>
+    # check_command spark_monitor!testSpark.py
+
 }
+
+# <sparkAppName>: the name of the Spark Streaming Application
 ```
 
 ### Command Definition
@@ -51,16 +57,17 @@ check_command spark_monitor!<sparkStreamingFilename>
 # Path: /usr/local/nagios/etc/objects/commands.cfg
 
 define command{
+
 command_name spark_monitor
+
 command_line $USER1$/spark_monitor.sh $ARG1$
+
 }
+
+# $ARG1$ contains the sparkAppName passed through the service definition.
 ```
-### Monitoring Script
-
-The source code for the shell script can be found in the GitHub repository (spark_monitor.sh). It returns CRITICAL state when the application is not running or the extension of the filename being submitted is invalid, and OK state when it is running properly. The file should be stored under /usr/local/nagios/etc/libexec/ for Nagios to properly access it.
-
 ### Configuration Check
 
-Once the files are properly modified, the service can be located on the monitoring dashboard, accessible at http://localhost/nagios.
+- Ensure the service is visible on the monitoring dashboard accessible at http://<ip address>/nagios.
 
 ![Nagios Plugin](https://github.com/teamclairvoyant/nagios-plugins/blob/master/spark-streaming/nagios-plugin.png)
