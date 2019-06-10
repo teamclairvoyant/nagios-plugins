@@ -1,11 +1,31 @@
 # Nagios Plugin for Monitoring Spark Streaming Applications
 
+## Description
 
-The following code snippets show how to implement a simple plugin for Nagios to monitor Spark Streaming Applications.
+- The following guide demonstrates how to install a plugin is to monitor Spark Streaming Applications through Nagios, an application that monitors systems, networks and infrastructure.
 
-A service and a command definition need to be created for the monitoring service.
+- The plugin returns a CRITICAL state when the application is not running and OK state when it is running properly.
 
-[Medium Article Post](https://medium.com/@prakshalj0512/nagios-plugin-for-monitoring-spark-streaming-applications-ea3859b9a275?postPublishedType=repub)
+
+
+[Follow Along Medium Post](https://medium.com/@prakshalj0512/nagios-plugin-for-monitoring-spark-streaming-applications-ea3859b9a275?postPublishedType=repub)
+
+
+## Deployment and Configuration
+
+### Prerequisites
+
+- YARN Application Manager
+
+### Note
+
+- If utilizing Kerberos, ensure that the user running the process has the privileges necessary to obtain an authentication ticket.
+
+#### Nagios WebServer
+
+- Store the script under /usr/local/nagios/etc/libexec/ found here.
+- Make the script executable.
+
 
 ### Service Definition
 
@@ -40,4 +60,4 @@ The source code for the shell script can be found in the GitHub repository (spar
 
 Once the files are properly modified, the service can be located on the monitoring dashboard, accessible at http://localhost/nagios.
 
-![Nagios Plugin](https://github.com/teamclairvoyant/nagios-plugins/blob/master/sparkStreaming/nagios-plugin.png)
+![Nagios Plugin](https://github.com/teamclairvoyant/nagios-plugins/blob/master/spark-streaming/nagios-plugin.png)
