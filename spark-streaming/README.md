@@ -25,7 +25,7 @@
 - Make the script executable.
 
 ```bash
-chmod +x /usr/local/nagios/etc/libexec/spark_monitor.sh
+chmod +x /usr/local/nagios/etc/libexec/spark_streaming_monitor.sh
 ```
 
 - Create a service definition need for the monitoring service.
