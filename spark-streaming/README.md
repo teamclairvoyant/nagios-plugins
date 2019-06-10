@@ -53,7 +53,7 @@ define service{
 
 ### Nagios Agent
 
--Create a command definition need for the monitoring service.
+- Create a command definition need for the monitoring service.
 
 ##### Command Definition
 
