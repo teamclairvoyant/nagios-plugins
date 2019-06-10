@@ -6,9 +6,7 @@
 
 - The plugin returns a CRITICAL state when the application is not running and OK state when it is running properly.
 
-
-
-[Follow Along Medium Post](https://medium.com/@prakshalj0512/nagios-plugin-for-monitoring-spark-streaming-applications-ea3859b9a275?postPublishedType=repub)
+- [Follow Along Medium Post](https://medium.com/@prakshalj0512/nagios-plugin-for-monitoring-spark-streaming-applications-ea3859b9a275?postPublishedType=repub)
 
 
 ## Deployment and Configuration
@@ -26,8 +24,13 @@
 - Store the script under /usr/local/nagios/etc/libexec/ found here.
 - Make the script executable.
 
+```bash
+chmod +x /usr/local/nagios/etc/libexec/spark_streaming_monitor.sh
+```
 
-### Service Definition
+- Create a service definition need for the monitoring service.
+
+##### Service Definition
 
 ```bash
 # Path: /usr/local/nagios/etc/objects/localhost.cfg
