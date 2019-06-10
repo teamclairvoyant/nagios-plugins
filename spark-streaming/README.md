@@ -14,6 +14,7 @@
 ### Prerequisites
 
 - YARN Application Manager
+    - the process should be running on a machine with the `yarn` command available.
 
 ### Note
 
