@@ -16,9 +16,9 @@
 
 - If utilizing a Kerberized cluster, ensure that the user running the process has the privileges necessary to obtain an authentication ticket.
 
-### Nagios WebServer
+### Nagios Web Server
 
-- Store the script responsible for monitoring the spark streaming applications (spark_stremaing_monitor.sh) under /usr/local/nagios/etc/libexec/.
+- Store the script responsible for monitoring the spark streaming applications (spark_streaming_monitor.sh) under /usr/local/nagios/etc/libexec/.
 - Make the script executable.
 
 ```bash
