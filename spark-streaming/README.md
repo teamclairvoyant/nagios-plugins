@@ -14,7 +14,7 @@
 
 ### Note
 
-- If utilizing Kerberos, ensure that the user running the process has the privileges necessary to obtain an authentication ticket.
+- If utilizing a Kerberized cluster, ensure that the user running the process has the privileges necessary to obtain an authentication ticket.
 
 ### Nagios WebServer
 
