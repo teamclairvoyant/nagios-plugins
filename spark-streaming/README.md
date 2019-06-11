@@ -70,7 +70,7 @@ define command{
 ```
 ### Configuration Check
 
-- Ensure the service is visible on the monitoring dashboard accessible at http://<nagiosHostname>/nagios/.
+- Ensure the service is visible on the monitoring dashboard accessible at http://[nagios-hostname]/nagios/.
 
 ![Nagios Plugin](https://github.com/teamclairvoyant/nagios-plugins/blob/master/spark-streaming/nagios-plugin.png)
 
