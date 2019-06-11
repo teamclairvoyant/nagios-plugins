@@ -2,7 +2,7 @@
 
 ## Description
 
-- The following guide demonstrates how to install a plugin is to monitor Spark Streaming Applications through Nagios, an application that monitors systems, networks and infrastructure.
+- The following guide demonstrates how to install a plugin to monitor Spark Streaming Applications through Nagios, an application that monitors systems, networks and infrastructure.
 
 - The plugin returns a CRITICAL state when the application is not running and OK state when it is running properly.
 
