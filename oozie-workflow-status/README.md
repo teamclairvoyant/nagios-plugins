@@ -1,18 +1,18 @@
-###Hortonworks Data Platform 3.1.1 Nagios Plugin - Oozie Workflow Status
+### Hortonworks Data Platform 3.1.1 Nagios Plugin - Oozie Workflow Status
 
 This plugin will identify and alert the status of Oozie workflows.
 This is assumed that nagios server and nrpe plugins have been installed, up and running. If not then follow the steps mentioed in link provided as below.
 
-https://github.com/teamclairvoyant/nagios-plugins/blob/master/oozie-workflow-status/Nagios%20installation%20and%20configuration
+https://github.com/teamclairvoyant/nagios-plugins/blob/master/Nagios%20installation%20and%20configuration
 
-Oozie nagios screenshot.PNG
+![Oozie Workflow](https://github.com/teamclairvoyant/nagios-plugins/blob/master/oozie-workflow-status/oozie-workflow.png)
 
 
-###News
+### News
 Updated for HDP 3.1.1 Nagios integration.
 This plugin now only reports on a fixed number of jobs in the past that meet time range criteria specified by the admin.
 
-###Dependencies
+### Dependencies
 If your cluster is kerberos enabled then, the Python source will need three new packages installed on the Nagios server.
 python-kerberos (CentOS Base)
 python-urllib2_kerberos (EPEL)
@@ -25,10 +25,10 @@ pip install python-kerberos
 pip install pytz 
 
 
-###Tested
+### Tested
 HDP 3.1.1 with Ambari version 2.7.3.0 
 
-###Installation
+### Installation
 All actions are conducted on the Standaone Nagios server. 
 
 **Read Carefully** -- The only files that should be added are check_oozie_workflows{.py,.sh} on Nagios server to location "/usr/local/nagios/libexec/".  The other files are configurations that should be added to the existing custom configuration.
@@ -56,27 +56,28 @@ define host {
         hostgroups              oozie-server
 }
 
-```
+
 
 3. Define command for oozie workflow status  at location "/usr/local/nagios/etc/objects/commands.cfg" and add below command as it is. 
 
-
+```
 define command{
   command_name    check_oozie_workflows
   command_line    $USER1$/check_oozie_workflows.sh $HOSTADDRESS$ 11000 java64_home false 5 500
 }
-
+```
 4. Once command is defined it's time to configure service group for oozie workflow status. Add below config at the end of file "/usr/local/nagios/etc/server/service_groups.cfg"
 
+```
 define servicegroup{
         servicegroup_name  oozie
         alias              oozie
 }
-
+```
 
 Now in configure service for oozie. add below cobfig at the end of file "/usr/local/nagios/etc/server/services.cfg"
 
-
+```
 define service {
         hostgroup_name          oozie-server
         use                     generic-service
@@ -87,19 +88,19 @@ define service {
         retry_check_interval    1
         max_check_attempts      3
 }
-
+```
 
 
 5. Restart Nagios server  for changes to take effect. 
 
+```
 service nagios restart 
-
 service nagios status 
+```
 
 
 
-
-####Alert Translations
+#### Alert Translations
 
 |Oozie Status   |  Script Exit Code |  Nagios Level |
 | ------------- |:-----------------:|--------------:|
