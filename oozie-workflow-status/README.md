@@ -3,10 +3,9 @@
 This plugin will identify and alert the status of Oozie workflows.
 This is assumed that nagios server and nrpe plugins have been installed, up and running. If not then follow the steps mentioed in link provided as below.
 
-https://github.com/teamclairvoyant/nagios-plugins/blob/master/Nagios%20installation%20and%20configuration
+https://github.com/teamclairvoyant/nagios-plugins/blob/master/Nagios%20installation%20and%20Configuration.md
 
 ![Oozie Workflow](https://github.com/teamclairvoyant/nagios-plugins/blob/master/oozie-workflow-status/oozie-workflow.png)
-
 
 ### News
 Updated for HDP 3.1.1 Nagios integration.
