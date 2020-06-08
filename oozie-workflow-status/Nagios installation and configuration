@@ -255,14 +255,14 @@ Once Nagios server and Agent setup completed  we need to set up email alerting f
 
 define command {
 command_name notify-host-by-email
-command_line /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\nHost: $HOSTNAME$\nState: $HOSTSTATE$\nAddress: $HOSTADDRESS$\nInfo: $HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | mailx -r "nagiosadmin@sboxdc.com" -s "** $NOTIFICATIONTYPE$ Host Alert: $HOSTNAME$ is $HOSTSTATE$ **" --set email-smtp.eu-west-1.amazonaws.com:587 pratap.mutadak@clairvoyantsoft.com
+command_line /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\nHost: $HOSTNAME$\nState: $HOSTSTATE$\nAddress: $HOSTADDRESS$\nInfo: $HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | mailx -r "nagiosadmin@sboxdc.com" -s "** $NOTIFICATIONTYPE$ Host Alert: $HOSTNAME$ is $HOSTSTATE$ **" --set email-smtp.eu-west-1.amazonaws.com:587 <email-address>
 }
 
 
 define command {
 
 command_name notify-service-by-email
-command_line /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\n\nService: $SERVICEDESC$\nHost: $HOSTALIAS$\nAddress: $HOSTADDRESS$\nState: $SERVICESTATE$\n\nDate/Time: $LONGDATETIME$\n\nAdditional Info:\n\n$SERVICEOUTPUT$\n" | mailx -r "nagiosadmin@sboxdc.com" -s "** $NOTIFICATIONTYPE$ Service Alert: $HOSTALIAS$/$SERVICEDESC$ is $SERVICESTATE$ **" --set email-smtp.eu-west-1.amazonaws.com:587 pratap.mutadak@clairvoyantsoft.com
+command_line /usr/bin/printf "%b" "***** Nagios *****\n\nNotification Type: $NOTIFICATIONTYPE$\n\nService: $SERVICEDESC$\nHost: $HOSTALIAS$\nAddress: $HOSTADDRESS$\nState: $SERVICESTATE$\n\nDate/Time: $LONGDATETIME$\n\nAdditional Info:\n\n$SERVICEOUTPUT$\n" | mailx -r "nagiosadmin@sboxdc.com" -s "** $NOTIFICATIONTYPE$ Service Alert: $HOSTALIAS$/$SERVICEDESC$ is $SERVICESTATE$ **" --set email-smtp.eu-west-1.amazonaws.com:587 <email-address>
 
 
 
@@ -279,7 +279,7 @@ define contact {
 contact_name  nagiosadmin ; Short name of user
 use generic-contact ; Inherit default values from generic-contact template (defined above)
 alias Nagios Admin ; Full name of user
-email pratap.mutadak@clairvoyantsoft.com ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ******
+email <email-address> ; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ******
 }
 
 
