@@ -48,6 +48,7 @@ define service{
 ### Nagios Agent
 
 - Create a command definition need for the monitoring service at the end of this file: `/usr/local/nagios/etc/objects/commands.cfg`.
+- `$ARG1$` contains the airlfow host and `$ARG2$` contains the airlfow port passed through the service definition.
 
 ##### Command Definition
 
@@ -57,11 +58,11 @@ define command{
 
     command_name airflow_scheduler
 
-    command_line $USER1$/airflow_scheduler.sh $ARG1$
+    command_line $USER1$/airflow_scheduler.sh $ARG1$ $ARG2$
 
 }
 
-# $ARG1$ contains the sparkAppName passed through the service definition.
+
 ```
 - Restart Nagios for the changes to take place (`systemctl restart nagios`).
 
