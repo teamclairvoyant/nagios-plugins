@@ -12,8 +12,6 @@
 
 - The process should be running on a machine with the `curl` and `jq` packages installed.
 
-### Note
-
 ### Nagios Web Server
 
 - Store the script responsible for monitoring the airflow scheduler (airflow_scheduler.sh) under /usr/local/nagios/etc/libexec/.
@@ -40,7 +38,6 @@ define service{
 
     # check_command airflow_scheduler!<airflow_host>!<airflow_port>
     check_command airflow_scheduler!localhost!8080
-
 }
 
 ```
@@ -59,7 +56,6 @@ define command{
     command_name airflow_scheduler
 
     command_line $USER1$/airflow_scheduler.sh $ARG1$ $ARG2$
-
 }
 
 
@@ -70,8 +66,6 @@ define command{
 
 - Ensure the service is visible on the monitoring dashboard accessible at http://[nagios-hostname]/nagios/.
 
-![Nagios Plugin](https://github.com/teamclairvoyant/nagios-plugins/blob/master/spark-streaming/nagios-plugin.png)
-
 ## Conclusion
 
-- All done! Now, you should be able to monitor any and all of your spark streaming applications at a glance from the Nagios dashboard.
+- All done! Now, you should be able to monitor any and all of your Airflow schedulers at a glance from the Nagios dashboard.
