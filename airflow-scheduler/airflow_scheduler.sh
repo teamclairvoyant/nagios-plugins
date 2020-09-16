@@ -3,7 +3,9 @@
 airflow_host=${1:-localhost}
 airflow_port=${2:-8080}
 
-scheduler_status=$(curl -k https://"${airflow_host}":"${airflow_port}"/health | jq --raw-output '.scheduler.status')
+scheduler_status=$(curl -k http://"${airflow_host}":"${airflow_port}"/health 2>/dev/null | jq --raw-output '.scheduler.status')
+
+echo $scheduler_status
 
 if [ "$scheduler_status" = "healthy" ]; then
     exit 0
