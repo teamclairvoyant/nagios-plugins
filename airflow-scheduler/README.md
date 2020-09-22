@@ -12,6 +12,42 @@
 
 - The process should be running on a machine with the `curl` and `jq` packages installed.
 
+- Debian/Ubuntu
+```
+sudo apt install -y curl
+sudo apt install -y jq
+```
+
+- CentOS
+```
+sudo yum install -y curl
+sudo yum install -y epel-release
+sudo yum install -y jq
+```
+
+- Binaries
+```
+# Curl
+sudo su
+cd /usr/local/src
+rm -rf curl*
+wget https://curl.haxx.se/download/curl-7.70.0.zip
+unzip curl-7.70.0.zip
+cd curl-7.70.0
+./configure --with-ssl --with-zlib --with-gssapi --enable-ldap --enable-ldaps --with-libssh --with-nghttp2
+make
+make install
+
+#Jq
+sudo apt-get install -y libtool
+git clone https://github.com/stedolan/jq.git
+cd jq
+autoreconf -i
+./configure --disable-maintainer-mode
+make
+sudo make install
+```
+
 ### Nagios Web Server
 
 - Store the script responsible for monitoring the airflow scheduler (airflow_scheduler.sh) under /usr/local/nagios/etc/libexec/.
