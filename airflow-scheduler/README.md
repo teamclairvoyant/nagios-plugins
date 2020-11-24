@@ -58,7 +58,7 @@ chmod +x /usr/local/nagios/etc/libexec/airflow_scheduler.sh
 ```
 
 - Create a service definition need for the monitoring service at the end of this file: `/usr/local/nagios/etc/objects/localhost.cfg`.
-- Update the values for `airflow_host` (defualt: localhost) and `airflow_port`  (defualt: 8080).
+- Update the values for `airflow_webserver_protocol` (default: http), `airflow_host` (defualt: localhost), and `airflow_port`  (defualt: 8080).
 
 ##### Service Definition
 
@@ -70,10 +70,10 @@ define service{
     host_name localhost
 
     # service_description Airflow Scheduler <airflow_host>:<airflow_port>
-    service_description Airflow Scheduler localhost:8080
+    service_description Airflow Scheduler http://localhost:8080
 
     # check_command airflow_scheduler!<airflow_host>!<airflow_port>
-    check_command airflow_scheduler!localhost!8080
+    check_command http!airflow_scheduler!localhost!8080
 }
 
 ```
@@ -81,7 +81,10 @@ define service{
 ### Nagios Agent
 
 - Create a command definition need for the monitoring service at the end of this file: `/usr/local/nagios/etc/objects/commands.cfg`.
-- `$ARG1$` contains the airlfow host and `$ARG2$` contains the airlfow port passed through the service definition.
+- Pass the following three arguments:
+  - `$ARG1$` : airflow webserver protocol (e.g. `http` or `https`)
+  - `$ARG2$` : airlfow host
+  - `$ARG3$` : airflow port (e.g. `8080`)
 
 ##### Command Definition
 
@@ -91,7 +94,7 @@ define command{
 
     command_name airflow_scheduler
 
-    command_line $USER1$/airflow_scheduler.sh $ARG1$ $ARG2$
+    command_line $USER1$/airflow_scheduler.sh $ARG1$ $ARG2$ $ARG3$
 }
 
 
