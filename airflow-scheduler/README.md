@@ -73,7 +73,7 @@ define service{
     service_description Airflow Scheduler http://localhost:8080
 
     # check_command airflow_scheduler!<airflow_webserver_protocol>!<airflow_host>!<airflow_port>
-    check_command!http!airflow_scheduler!localhost!8080
+    check_command!airflow_scheduler!http!localhost!8080
 }
 
 ```
