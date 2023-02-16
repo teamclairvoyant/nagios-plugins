@@ -16,6 +16,9 @@ Comma separated list of auth backends to authenticate users of the API. See
 # ("airflow.api.auth.backend.default" allows all requests for historic reasons)
 auth_backends = airflow.api.auth.backend.session ,airflow.api.auth.backend.basic_auth
 ```
+NOTE: These plugins were deployed on AWS AMI 
+CentOS Linux 7 x86_64 HVM EBS (encrypted) 20190924 013830 - ami-06fc3abed88d7cf1b
+Python version 3.9, Airflow version 2.3.2 and Nagios version 4.1.1
 
 ## Deploying plugin on Nagios
 After we setup Nagios, we need to follow these steps to create a python plugin. 
